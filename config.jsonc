@@ -1,21 +1,11 @@
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": {
-        "type": "auto",
-        "size": 50,
-        "padding": {
-            "left": 0,
-            "right": 2
-        }
-    },
     "display": {
         "color": {
-            "keys": ["green", "gray"],
-            "title": "cyan",
-            "separator": "gray"
+            "keys": "green",
+            "title": "cyan"
         },
-        "separator": " ",
-        "maxWidth": 80
+        "keyValueSeparator": " "
     },
     "modules": [
         {
@@ -25,12 +15,12 @@
         },
         {
             "type": "custom",
-            "format": "│˹ \u001b[1m{username}\u001b[22m@{hostname} ˺│",
+            "format": "│˹ {username}@{hostname} ˺│",
             "color": "green"
         },
         {
             "type": "custom",
-            "format": "│˻ {username2}           ˼│",
+            "format": "│˻ {username}           ˼│",
             "color": "green"
         },
         {
@@ -40,53 +30,43 @@
         },
         {
             "type": "os",
-            "format": "│ \u001b[32mOS:\u001b[0m {name}",
-            "keyColor": "green",
-            "key": " ",
-            "textFormat": "{}"
+            "format": "│ OS: {name}",
+            "keyColor": "green"
         },
         {
             "type": "kernel",
-            "format": "│ \u001b[32mЯдро:\u001b[0m {name}",
-            "keyColor": "green",
-            "key": " "
+            "format": "│ Ядро: {name}",
+            "keyColor": "green"
         },
         {
             "type": "packages",
-            "format": "│ \u001b[32mПакеты:\u001b[0m {count}",
-            "keyColor": "green",
-            "key": " "
+            "format": "│ Пакеты: {count}",
+            "keyColor": "green"
         },
         {
             "type": "shell",
-            "format": "│ \u001b[32mShell:\u001b[0m {name}",
-            "keyColor": "green",
-            "key": " ",
-            "textFormat": "{}"
+            "format": "│ Shell: {name}",
+            "keyColor": "green"
         },
         {
             "type": "wm",
-            "format": "│ \u001b[32mWM:\u001b[0m {name}",
-            "keyColor": "green",
-            "key": " "
+            "format": "│ WM: {name}",
+            "keyColor": "green"
         },
         {
             "type": "terminal",
-            "format": "│ \u001b[32mTerminal:\u001b[0m {name}",
-            "keyColor": "green",
-            "key": " "
+            "format": "│ Terminal: {name}",
+            "keyColor": "green"
         },
         {
             "type": "memory",
-            "format": "│ \u001b[32mПамять:\u001b[0m {used} / {total}",
-            "keyColor": "green",
-            "key": " "
+            "format": "│ Память: {used} / {total}",
+            "keyColor": "green"
         },
         {
             "type": "disk",
-            "format": "│ \u001b[32mДиск:\u001b[0m {used} / {total}",
-            "keyColor": "green",
-            "key": " "
+            "format": "│ Диск: {used} / {total}",
+            "keyColor": "green"
         },
         {
             "type": "custom",

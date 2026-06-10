@@ -1,24 +1,13 @@
 name: macOS Hardware Info
 
-on:
-  workflow_dispatch
+on: workflow_dispatch
 
 jobs:
-  neofetch:
-    runs-on: macos-latest  # macOS 15 (Apple Silicon)
+  hardware:
+    runs-on: macos-latest
     steps:
-      - name: Check if Homebrew is installed
-        run: |
-          if command -v brew &> /dev/null; then
-            echo "✅ Homebrew already installed"
-            brew --version
-          else
-            echo "⚠️ Homebrew not found, installing..."
-            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-          fi
-      
-      - name: Install neofetch via Homebrew
-        run: brew install neofetch
+      - name: Install fastfetch
+        run: brew install fastfetch
       
       - name: Show system info
-        run: neofetch
+        run: fastfetch

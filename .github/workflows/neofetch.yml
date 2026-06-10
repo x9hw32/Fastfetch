@@ -1,13 +1,17 @@
-name: macOS Hardware Info
+name: Windows Hardware Info
 
 on: workflow_dispatch
 
 jobs:
   hardware:
-    runs-on: macos-latest
+    runs-on: windows-latest  # Windows Server 2025
     steps:
-      - name: Install fastfetch
-        run: brew install fastfetch
+      - name: Install fastfetch (Windows)
+        shell: pwsh
+        run: |
+          winget install fastfetch
+          refreshenv
       
       - name: Show system info
+        shell: pwsh
         run: fastfetch

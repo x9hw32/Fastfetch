@@ -1,0 +1,14 @@
+name: Show GitHub Actions Hardware
+
+on:
+  workflow_dispatch  # Запуск вручную (можно заменить на push)
+
+jobs:
+  show-hardware:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Install neofetch
+        run: sudo apt update && sudo apt install neofetch -y
+      
+      - name: Show system info
+        run: neofetch --stdout

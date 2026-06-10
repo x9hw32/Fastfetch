@@ -1,14 +1,24 @@
-name: Show GitHub Actions Hardware
+name: macOS Hardware Info
 
 on:
-  workflow_dispatch  # Запуск вручную (можно заменить на push)
+  workflow_dispatch
 
 jobs:
-  show-hardware:
-    runs-on: ubuntu-22.04
+  neofetch:
+    runs-on: macos-latest  # macOS 15 (Apple Silicon)
     steps:
-      - name: Install neofetch
-        run: sudo apt update && sudo apt install neofetch -y
+      - name: Check if Homebrew is installed
+        run: |
+          if command -v brew &> /dev/null; then
+            echo "✅ Homebrew already installed"
+            brew --version
+          else
+            echo "⚠️ Homebrew not found, installing..."
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          fi
+      
+      - name: Install neofetch via Homebrew
+        run: brew install neofetch
       
       - name: Show system info
-        run: neofetch --stdout
+        run: neofetch
